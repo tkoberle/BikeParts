@@ -10,9 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "event-stream": "^4.0.1",
     "express": "^4.16.3",
     "joi": "^13.6.0",
-    "nodemon": "^1.18.4",
+    "nodemon": "^2.0.4",
     "typescript": "^3.0.3"
   }
 }
