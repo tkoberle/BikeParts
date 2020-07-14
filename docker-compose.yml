@@ -3,8 +3,23 @@ version: '3.4'
 services:
   bikeparts:
     image: bikeparts
-    build: .
+    ports: 
+      - "3000:3000"
+    build: 
+      context: ./bikeparts
+      dockerfile: Dockerfile
     environment:
       NODE_ENV: production
     ports:
       - 3000
+  bikes:
+    image: bikes
+    ports: 
+      - "3001:3001"
+    build: 
+      context: ./bikes
+      dockerfile: Dockerfile
+    environment: 
+      NODE_ENV: production
+    ports: 
+      - 3001
