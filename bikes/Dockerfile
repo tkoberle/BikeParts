@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # Open port 3000
-EXPOSE 3000
+EXPOSE 3001
 
 # Run the app
-CMD [ "node", "app.js" ]
+CMD [ "node", "bikes-app.js" ]
