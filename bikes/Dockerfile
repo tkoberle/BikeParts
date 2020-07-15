@@ -15,7 +15,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# Open port 3000
+# Open port 3001
 EXPOSE 3001
 
 # Run the app

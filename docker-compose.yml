@@ -3,8 +3,14 @@ version: '3.4'
 services:
   bikeparts:
     image: bikeparts
-    build: .
+    build: ./bikeparts
     environment:
       NODE_ENV: production
     ports:
       - 3000
+  bikes:
+    build: ./bikes
+    environment: 
+      NODE_ENV: production
+    ports: 
+      - 3001
