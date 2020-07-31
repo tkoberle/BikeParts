@@ -17,11 +17,31 @@ bikeParts.forEach(part => {
     }
 });
 
+/**
+ * @swagger
+ * /bikeparts:
+ *  get:
+ *      description: Get all bike parts in the catalog
+ */
 router.get('/',(req,res) => 
 {
     res.send(bikeParts);
 })
 
+/**
+ * @swagger
+ * /bikeparts:
+ *  get:
+ *      description: Get bike part corresponding to a provided ID
+ *  produces:
+ *       - application/json
+ *  parameters:
+ *       - name: id
+ *         description: id of the bike part to retrieve
+ *         in: formData
+ *         required: true
+ *         type: number
+ */
 router.get('/:id',(req,res) => {
     console.log(`Searching for part id ${req.params.id}`);
     const part = bikeParts.find(part => part.id === parseInt(req.params.id));
