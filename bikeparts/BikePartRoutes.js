@@ -49,6 +49,20 @@ router.get('/:id',(req,res) => {
     res.send(part);
 })
 
+/**
+ * @swagger
+ * /bikeparts:
+ *  put:
+ *     description: Update the bike part for the provided ID
+ *  produces:
+ *       - application/json
+ *  parameters:
+ *       - name: id
+ *         description: id of the bike part to update
+ *         in: formData
+ *         required: true
+ *         type: number
+ */
 router.put('/:id',(req,res) => {
     const {error} = validateBikePart(req.body);
     if(error){
@@ -70,6 +84,20 @@ router.put('/:id',(req,res) => {
     res.send(part);
 })
 
+/**
+ * @swagger
+ * /bikeparts:
+ *  delete:
+ *     description: Delete the bike part for the provided ID
+ *  produces:
+ *       - application/json
+ *  parameters:
+ *       - name: id
+ *         description: id of the bike part to delete
+ *         in: formData
+ *         required: true
+ *         type: number
+ */
 router.delete('//:id',(req,res) => {
     console.log(`Searching for part id ${req.params.id}`);
     const part = bikeParts.find(part => part.id === parseInt(req.params.id));
