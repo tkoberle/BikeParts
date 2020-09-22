@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   bikeparts:
-    image: bikeparts
+    image: tkoberle/bikeparts:1.1
     ports: 
       - "3000:3000"
     build: 
@@ -13,7 +13,7 @@ services:
     ports:
       - 3000
   bikes:
-    image: bikes
+    image: tkoberle/bikes:1.1
     ports: 
       - "3001:3001"
     build: 
