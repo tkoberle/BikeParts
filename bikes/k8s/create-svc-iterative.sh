@@ -1,0 +1,1 @@
+kubectl expose rc bikes-rc --name=bikes-svc --target-port=3001 --type NodePort
