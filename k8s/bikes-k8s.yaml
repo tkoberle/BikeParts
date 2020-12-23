@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: bikes-svc 
+    labels: 
+        app: bikes-app
+spec:
+    type: NodePort
+    ports:
+        - port: 3001
+          nodePort: 30001
+          protocol: TCP
+    selector:
+        app: bikes-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: bikes-deploy 
+    labels:
+        app: bikes-app
+spec:
+    replicas : 5
+    selector:
+        matchLabels:
+            app: bikes-app
+    template :
+        metadata:
+            labels:
+               app: bikes-app
+        spec:
+            containers:
+            - name: bikes-pod
+              image: tkoberle/bikes:1.1
+              ports:
+              - containerPort: 3001
+---
