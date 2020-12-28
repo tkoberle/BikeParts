@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: bikeparts-namespace
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: bikesparts-svc 
+    labels: 
+        app: bikesparts-app
+spec:
+    type: NodePort
+    ports:
+        - port: 3002
+          nodePort: 30002
+          protocol: TCP
+    selector:
+        app: bikesparts-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: bikesparts-deploy 
+    labels:
+        app: bikesparts-app
+spec:
+    replicas : 5
+    selector:
+        matchLabels:
+            app: bikesparts-app
+    template :
+        metadata:
+            labels:
+               app: bikesparts-app
+        spec:
+            containers:
+            - name: bikesparts-pod
+              image: tkoberle/bikesparts:1.1
+              ports:
+              - containerPort: 3002
+---
