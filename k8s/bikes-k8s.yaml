@@ -34,4 +34,12 @@ spec:
               image: tkoberle/bikes:1.1
               ports:
               - containerPort: 3001
+              livenessProbe:
+                httpGet:
+                  path: /api/bikes/1
+                  port: 3001
+                  httpHeaders:
+                    - name: testHeader
+                      value:  HeaderValue
+                  periodSeconds: 30
 ---
